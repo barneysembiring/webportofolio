@@ -9,15 +9,18 @@
 
 :root {
   /* Global Color */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
   --primary_color: #af0328;
   --secondary_color: #1a1a1a;
   --text_color: #6b778e;
   --text_color_one: #eafbf2;
   --default_color_one: #ffffff;
-  --border_radius: 2px;
+  --border_radius: 15px;
+  --primary_font: 'Poppins', sans-serif !important;
 
   /* global google font */
-  --primary_font: 'Inter', sans-serif;
+  /* --primary_font: 'Inter', sans-serif; */
 }
 
 /*Typography
@@ -27,7 +30,7 @@ p {
   font-weight: 400;
   font-size: 17px;
   color: var(--text_color);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 h1,
 h2,
@@ -132,63 +135,17 @@ li {
   margin-bottom: 20px;
 }
 
-/* button */
-.d2c_btn {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--secondary_color);
-  background-color: var(--primary_color);
-  border: 1px solid var(--primary_color);
-  border-radius: var(--border_radius);
-  text-align: center;
-  padding: 8px 15px;
-  font-family: var(--primary_font);
-  font-weight: 700;
-  font-size: 15px;
-  text-transform: capitalize;
-  transition: 0.4s all ease;
-}
-.d2c_btn:focus {
-  outline: 0;
-  box-shadow: none;
-}
-.d2c_btn:hover {
-  background: transparent;
-  color: var(--primary_color);
-  border-color: var(--primary_color);
-  transition: 0.4s all ease;
-}
-.d2c_btn:active {
-  box-shadow: none;
-}
-.d2c_btn_invert {
-  background: transparent;
-  color: var(--primary_color);
-  border-color: var(--primary_color);
-  transition: 0.4s all ease;
-}
-.d2c_btn_invert:focus {
-  color: var(--primary_color);
-}
-.d2c_btn_invert:hover {
-  background: var(--primary_color);
-  color: var(--default_color_one);
-  border-color: var(--primary_color);
-  transition: 0.4s all ease;
-}
-
 /* title */
 .d2c_title {
   font-size: 36px;
   color: var(--secondary_color);
-  margin-bottom: 16px;
-  text-transform: uppercase;
+  margin-bottom: 1px !important;
+  /* text-transform: uppercase; */
 }
 .d2c_subtitle {
-  font-size: 24px;
+  font-size: 18px;
   /* text-transform: capitalize; */
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 /* navbar */
@@ -198,7 +155,11 @@ li {
 .d2c_navbar {
   background: var(--secondary_color);
   box-shadow: 0px 0px 25px rgba(64, 18, 128, 0.05);
-  padding: 10px 0px;
+  height: 80px; /* Kurangi tinggi navbar */
+  padding: 5px 15px; /* Kurangi padding agar lebih tipis */
+  display: flex;
+  align-items: center; /* Agar teks tetap di tengah */
+  font-size: 14px; /* Perkecil ukuran teks jika perlu */
 }
 .d2c_navbar .navbar-nav .nav-link,
 .d2c_footer_nav .nav-link {
@@ -310,6 +271,7 @@ body .d2c_mobile_view {
   background-image: url(../images/hero_bg.png);
   background-repeat: no-repeat;
   background-position: left center;
+  padding-bottom: 30px !important;
   padding: 0px;
 }
 .d2c_hero_content {
@@ -352,7 +314,7 @@ body .d2c_mobile_view {
   color: var(--default_color_one);
   font-weight: 500;
   /* letter-spacing: em; */
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 .d2c_hero_content .d2c_hero_paragraph {
   color: var(--text_color_one);
@@ -964,6 +926,45 @@ body .d2c_mobile_view {
 }
 .navbar-toggler {
   display: none !important;
+}
+.d2c_btn {
+  display: inline-block;
+  background-color: #810e0e; /* Warna biru */
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.d2c_btn:hover {
+  background-color: #ffffff; /* Warna lebih gelap saat hover */
+  transform: scale(1.05); /* Efek sedikit membesar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.d2c_animation_subtitle {
+  display: inline-block;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  margin-bottom: 50px !important;
+  margin-top: 1px;
+  padding: 5;
+}
+
+.d2c_animation_subtitle::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 /* ========================== bottom to top scroll end ============================ */

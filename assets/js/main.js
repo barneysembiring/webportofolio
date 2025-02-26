@@ -231,6 +231,42 @@ $(function () {
     );
   }
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const texts = ['Software Engineer ', 'DevOps ', 'QA Automation '];
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 80; // Kecepatan mengetik
+  const eraseSpeed = 100; // Kecepatan menghapus
+  const delayBetweenWords = 1500; // Jeda sebelum menghapus
+
+  function typeEffect() {
+    const currentText = texts[textIndex];
+    const typingElement = document.querySelector('.d2c_animation_subtitle');
+
+    if (typingElement) {
+      if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, charIndex--);
+      } else {
+        typingElement.textContent = currentText.substring(0, charIndex++);
+      }
+
+      let typingDelay = isDeleting ? eraseSpeed : typingSpeed;
+
+      if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        typingDelay = delayBetweenWords;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length; // Ulangi daftar teks
+      }
+
+      setTimeout(typeEffect, typingDelay);
+    }
+  }
+
+  typeEffect();
+});
 
 /* 
    Template Name: {{ #  }}
