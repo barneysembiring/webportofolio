@@ -597,10 +597,13 @@ body .d2c_mobile_view {
 }
 .d2c_gallery_image_wrapper {
   overflow: hidden;
+  height: 200px;
+  border-radius: 20px;
 }
 .d2c_gallery_image_wrapper img {
   object-fit: cover;
   border-radius: var(--border_radius);
+  height: 100%;
   box-shadow: 0px 0px 28px rgba(44, 217, 123, 0.07);
 }
 .d2c_gallery_column {
